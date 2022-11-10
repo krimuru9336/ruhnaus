@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="htttp://thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<!-- Template Main CSS File -->
+<link href="assets/css/insertItemStyle.css" rel="stylesheet">
+</head>
+<body>
+	<form th:action="@{/insertItem}" th:object="${item}" method="post">
+		<table>
+			<tr>
+				<td>Gerischt Name:</td>
+				<td><input type="text" name="item" required="required" /></td>
+			</tr>
+
+			<tr>
+				<td>Gerischt Beschreibung:</td>
+				<td><input type="text" name="item_description" /></td>
+			</tr>
+			<tr>
+				<td>Karten Nummer:</td>
+				<td><input type="number" name="category_id" required="required" /></td>
+			</tr>
+
+			<tr>
+				<td>Price:</td>
+				<td><input type="text" pattern="^\d*(\.\d{0,2})?$" name="price"
+					required="required" /></td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit">INSERT</button>
+				</td>
+			</tr>
+		</table>
+
+	</form>
+
+	<h1>Karten</h1>
+
+	<table>
+		<tr>
+			<th>Karten Nummer</th>
+			<th>Karten Name</th>
+		</tr>
+		<tr th:each="categoryVar: ${category}">
+			<td th:text="${categoryVar.category_id}" />
+			<td th:text="${categoryVar.category_name}" />
+		</tr>
+	</table>
+</body>
+</html>
