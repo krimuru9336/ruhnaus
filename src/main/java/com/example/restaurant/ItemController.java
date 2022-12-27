@@ -20,7 +20,6 @@ public class ItemController implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM item";
 		itemList = new ArrayList<Item>();
 
@@ -36,17 +35,11 @@ public class ItemController implements CommandLineRunner {
 			item.setPrice(Double.parseDouble(row.get("price").toString()));
 
 			itemList.add(item);
-
-			System.err.println(item.getItem());
 		}
-
 	}
 
 	@RequestMapping("/")
 	public String items(Model model) {
-
-		System.err.println("In controller class");
-		System.err.println(itemList);
 		model.addAttribute("item", itemList);
 		return "index";
 	}
