@@ -7,7 +7,7 @@
   var captionText = document.getElementById("caption");
  // img.onclick = function(){
     modal.style.display = "block";
-    modalImg.src = "assets/img/sampleQR.jpg";
+    modalImg.src = "assets/img/qrCodePdf.png";
     captionText.innerHTML = "Scan to open the PDF";
  // }
 
